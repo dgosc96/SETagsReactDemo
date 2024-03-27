@@ -1,20 +1,12 @@
-import { useState } from 'react';
-import { Button } from '@mui/material';
+import { Container } from '@mui/material';
+import { TagsList } from './components/TagsList';
+
 const App = () => {
   return (
-    <div>
-      <h1>HELLO WORLasdD</h1>
-      <Counter />
-    </div>
-  );
-};
-
-const Counter = () => {
-  const [val, setVal] = useState<number>(0);
-  return (
-    <Button variant='contained' onClick={() => setVal((prev) => prev + 1)}>
-      Count {val}
-    </Button>
+    <Container sx={{ border: 1 }}>
+      <h1>StackOverflow Tags Viewer</h1>
+      <TagsList />
+    </Container>
   );
 };
 
