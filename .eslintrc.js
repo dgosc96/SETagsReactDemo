@@ -9,17 +9,17 @@ module.exports = {
       version: 'detect',
     },
   },
-
   plugins: ['@typescript-eslint', 'react'],
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    'prettier/@typescript-eslint',
+    'prettier',
     'plugin:prettier/recommended',
   ],
   rules: {
