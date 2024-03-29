@@ -1,6 +1,7 @@
 export type SE_tag = {
-  count: number;
   name: string;
+  last_activity_date: number;
+  count: number;
 };
 
 export type SE_TagsFetchParams = {

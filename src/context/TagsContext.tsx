@@ -1,21 +1,17 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import type { SE_TagsFetchParams } from '../types/SE_api';
 
+type SetActionType<T> = T | ((prev: T) => T);
+
 type TagsFetchParamsContextProps = SE_TagsFetchParams & {
   fetchParams: SE_TagsFetchParams;
   setOrderParam: (
-    callback: (prev: SE_TagsFetchParams['order']) => SE_TagsFetchParams['order']
+    setAction: SetActionType<SE_TagsFetchParams['order']>
   ) => void;
-  setSortParam: (
-    callback: (prev: SE_TagsFetchParams['sort']) => SE_TagsFetchParams['sort']
-  ) => void;
-  setPageParam: (
-    callback: (prev: SE_TagsFetchParams['page']) => SE_TagsFetchParams['page']
-  ) => void;
+  setSortParam: (setAction: SetActionType<SE_TagsFetchParams['sort']>) => void;
+  setPageParam: (setAction: SetActionType<SE_TagsFetchParams['page']>) => void;
   setPagesizeParam: (
-    callback: (
-      prev: SE_TagsFetchParams['pagesize']
-    ) => SE_TagsFetchParams['pagesize']
+    setAction: SetActionType<SE_TagsFetchParams['pagesize']>
   ) => void;
 };
 
@@ -44,20 +40,44 @@ export const TagsFetchParamsContextProvider = ({
     useState<TagsFetchParamsContextProps['pagesize']>(20);
 
   const setOrderParam: TagsFetchParamsContextProps['setOrderParam'] = (
-    callback
-  ) => setOrder((prev) => callback(prev));
+    setAction
+  ) => {
+    if (typeof setAction === 'function') {
+      setOrder((prev) => setAction(prev));
+      return;
+    }
+    setOrder(setAction);
+  };
 
   const setSortParam: TagsFetchParamsContextProps['setSortParam'] = (
-    callback
-  ) => setSort((prev) => callback(prev));
+    setAction
+  ) => {
+    if (typeof setAction === 'function') {
+      setSort((prev) => setAction(prev));
+      return;
+    }
+    setSort(setAction);
+  };
 
   const setPageParam: TagsFetchParamsContextProps['setPageParam'] = (
-    callback
-  ) => setPage((prev) => callback(prev));
+    setAction
+  ) => {
+    if (typeof setAction === 'function') {
+      setPage((prev) => setAction(prev));
+      return;
+    }
+    setPage(setAction);
+  };
 
   const setPagesizeParam: TagsFetchParamsContextProps['setPagesizeParam'] = (
-    callback
-  ) => setPagesize((prev) => callback(prev));
+    setAction
+  ) => {
+    if (typeof setAction === 'function') {
+      setPagesize((prev) => setAction(prev));
+      return;
+    }
+    setPagesize(setAction);
+  };
 
   const fetchParams = { order, sort, page, pagesize };
 

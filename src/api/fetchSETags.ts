@@ -7,7 +7,7 @@ export const fetchSETags = async ({
   sort = 'popular',
 }: SE_TagsFetchParams): Promise<SE_tag[]> => {
   const baseURL = 'https://api.stackexchange.com';
-  const params = `/2.3/tags?order=${order}&sort=${sort}&page=${page}&pagesize=${pagesize}&site=stackoverflow&filter=!bLuioGU5)qFiH6`;
+  const params = `/2.3/tags?order=${order}&sort=${sort}&page=${page}&pagesize=${pagesize}&site=stackoverflow&filter=!4--Q8mMl8rw6M*Y(E`;
   console.log('SE_TAGS_PARAMS: ', params);
 
   const response = await fetch(baseURL + params);
