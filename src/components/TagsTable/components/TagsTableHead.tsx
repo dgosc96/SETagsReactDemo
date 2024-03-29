@@ -59,7 +59,7 @@ const TagTableHeadCell = ({
         direction={orderParam}
         onClick={handleClick}
       >
-        {label}
+        <b>{label}</b>
       </TableSortLabel>
     </TableCell>
   );
