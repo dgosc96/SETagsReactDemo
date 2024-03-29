@@ -1,9 +1,15 @@
-import { SE_tag } from '../types/SE_api';
+import { SE_tag, SE_TagsFetchParams } from '../types/SE_api';
 
-export const fetchSETags = async (): Promise<SE_tag[]> => {
+export const fetchSETags = async ({
+  page = 1,
+  pagesize = 30,
+  order = 'desc',
+  sort = 'popular',
+}: SE_TagsFetchParams): Promise<SE_tag[]> => {
   const baseURL = 'https://api.stackexchange.com';
-  const params =
-    '/2.3/tags?order=desc&sort=popular&site=stackoverflow&filter=!bLuioGU5)qFiH6';
+  const params = `/2.3/tags?order=${order}&sort=${sort}&page=${page}&pagesize=${pagesize}&site=stackoverflow&filter=!bLuioGU5)qFiH6`;
+  console.log('SE_TAGS_PARAMS: ', params);
+
   const response = await fetch(baseURL + params);
 
   if (!response.ok) {
