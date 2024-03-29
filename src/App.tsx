@@ -1,9 +1,9 @@
 import { Container } from '@mui/material';
-import { TagsTable } from './components/TagsTable/TagsTable';
+import TagsTable from './components/TagsTable/TagsTable';
 
 const App = () => {
   return (
-    <Container sx={{ border: 1 }}>
+    <Container>
       <h1>StackOverflow Tags Viewer</h1>
       <TagsTable />
     </Container>

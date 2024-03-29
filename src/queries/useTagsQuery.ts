@@ -7,6 +7,7 @@ export const useTagsQuery = () => {
   return useQuery({
     queryKey: ['tags', fetchParams],
     queryFn: () => fetchSETags(fetchParams),
+    gcTime: 1000 * 60 * 10,
     staleTime: 1000 * 60 * 5,
   });
 };
