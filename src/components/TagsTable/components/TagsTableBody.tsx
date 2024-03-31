@@ -21,7 +21,7 @@ export const TagsTableBody = () => {
   }
   return (
     <TableBody>
-      {tagsQuery.data.map((tag) => (
+      {tagsQuery.data.items.map((tag) => (
         <TableRow key={tag.name} sx={{ py: '20px' }}>
           <TableCell component='th' scope='row'>
             {tag.name}
@@ -59,4 +59,3 @@ const TagsTableBodySkeleton = () => {
     </TableBody>
   );
 };
-/* <Skeleton variant='rectangular' key={index} width={'100%'}> /* </Skeleton> */
