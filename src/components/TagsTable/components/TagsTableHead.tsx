@@ -13,7 +13,7 @@ const TagsTableHead = () => {
     <TableHead>
       <TableRow>
         <TagTableHeadCell label='Tag name' sortVal='name' />
-        <TagTableHeadCell label='Popularity' sortVal='popular' align='right' />
+        <TagTableHeadCell label='Popularity' sortVal='popular' align='center' />
         <TagTableHeadCell
           label='Last activity'
           sortVal='activity'
@@ -23,7 +23,6 @@ const TagsTableHead = () => {
     </TableHead>
   );
 };
-
 export default TagsTableHead;
 
 type TagTableHeadCellProps = TableCellProps & {
@@ -58,6 +57,10 @@ const TagTableHeadCell = ({
         active={sortVal === sortParam}
         direction={orderParam}
         onClick={handleClick}
+        sx={{
+          fontSize: 18,
+          '&.Mui-active': { color: 'primary.main' },
+        }}
       >
         <b>{label}</b>
       </TableSortLabel>

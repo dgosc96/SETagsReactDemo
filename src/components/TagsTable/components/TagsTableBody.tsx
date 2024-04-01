@@ -5,6 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import Skeleton from '@mui/material/Skeleton';
 import { useTagsFetchParamsContext } from '../../../context/TagsContext';
 import formatUnixTime from '../../../utils/formatUnixTime';
+import Alert from '@mui/material/Alert';
 
 export const TagsTableBody = () => {
   const tagsQuery = useTagsQuery();
@@ -14,19 +15,25 @@ export const TagsTableBody = () => {
   }
   if (tagsQuery.isError) {
     return (
-      <span>
-        Error: {tagsQuery.error.name}: {tagsQuery.error.message}
-      </span>
+      <TableBody>
+        <TableRow>
+          <TableCell align='center' colSpan={4}>
+            <Alert severity='error'>
+              {tagsQuery.error.name}: {tagsQuery.error.message}
+            </Alert>
+          </TableCell>
+        </TableRow>
+      </TableBody>
     );
   }
   return (
     <TableBody>
       {tagsQuery.data.items.map((tag) => (
-        <TableRow key={tag.name} sx={{ py: '20px' }}>
+        <TableRow key={tag.name}>
           <TableCell component='th' scope='row'>
             {tag.name}
           </TableCell>
-          <TableCell align='right'>
+          <TableCell align='center'>
             {tag.count.toLocaleString()} questions
           </TableCell>
           <TableCell align='right'>

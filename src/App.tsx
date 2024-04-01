@@ -1,12 +1,15 @@
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import TagsTable from './components/TagsTable/TagsTable';
-import { TagsTableToolbar } from './components/TagsTableToolbar';
 
 const App = () => {
   return (
     <Container>
-      <h1>StackOverflow Tags Viewer</h1>
-      <TagsTableToolbar />
+      <Typography
+        variant='h3'
+        sx={{ my: '2rem', textAlign: 'center', color: 'primary.main' }}
+      >
+        StackOverflow Tags Viewer
+      </Typography>
       <TagsTable />
     </Container>
   );

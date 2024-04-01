@@ -14,8 +14,10 @@ export const TagsTableToolbar = () => {
     <Toolbar
       sx={{
         display: 'flex',
-        justifyContent: 'flex-end',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
         gap: '2rem',
+        mb: '1rem',
       }}
     >
       <PagesizeField />
@@ -34,7 +36,16 @@ const TagsTablePagination = () => {
     setPageParam(newPage);
   };
 
-  return <Pagination count={25} page={page} onChange={handleChangePage} />;
+  return (
+    <Pagination
+      sx={{ gap: 0 }}
+      count={26}
+      page={page}
+      onChange={handleChangePage}
+      color='primary'
+      variant='outlined'
+    />
+  );
 };
 
 const PagesizeField = () => {
@@ -73,7 +84,6 @@ const PagesizeField = () => {
         display: 'flex',
         alignItems: 'center',
         gap: 1,
-        backgroundColor: 'common.error',
       }}
     >
       <Tooltip
@@ -105,13 +115,19 @@ const PagesizeField = () => {
           inputProps={{
             min: 1,
             max: 100,
-            style: { fontSize: 15, padding: '0.5em', textAlign: 'center' },
+            style: {
+              fontSize: 15,
+              padding: '0.5em',
+              textAlign: 'center',
+            },
           }}
           onChange={handleFieldChange}
           defaultValue={pagesize}
           variant='outlined'
           size='small'
-          sx={{ width: '7.5rem' }}
+          sx={{
+            width: '7.5rem',
+          }}
         />
       </Tooltip>
       <Button type='submit' variant='outlined' size='small'>
