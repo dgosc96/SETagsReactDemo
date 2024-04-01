@@ -1,44 +1,122 @@
-import { TablePagination, Toolbar } from '@mui/material';
+import {
+  Box,
+  Button,
+  Pagination,
+  TextField,
+  Toolbar,
+  Tooltip,
+} from '@mui/material';
 import { useTagsFetchParamsContext } from '../context/TagsContext';
-import { useTagsQuery } from '../queries/useTagsQuery';
+import { SyntheticEvent, useState } from 'react';
 
 export const TagsTableToolbar = () => {
   return (
-    <Toolbar sx={{ border: 1 }}>
+    <Toolbar
+      sx={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        gap: '2rem',
+      }}
+    >
+      <PagesizeField />
       <TagsTablePagination />
     </Toolbar>
   );
 };
 
 const TagsTablePagination = () => {
-  const { page, setPageParam, pagesize, setPagesizeParam } =
-    useTagsFetchParamsContext();
-
-  const { data } = useTagsQuery();
+  const { page, setPageParam } = useTagsFetchParamsContext();
 
   const handleChangePage = (
-    _event: React.ChangeEvent<unknown> | null,
+    _event: React.ChangeEvent<unknown>,
     newPage: number
   ) => {
-    if (data?.has_more) setPageParam(newPage + 1);
+    setPageParam(newPage);
   };
 
-  const handleChangeRowsPerPage = (
+  return <Pagination count={25} page={page} onChange={handleChangePage} />;
+};
+
+const PagesizeField = () => {
+  const { pagesize, setPagesizeParam } = useTagsFetchParamsContext();
+  const [localPagesizeVal, setLocalPageNum] = useState(pagesize);
+  const [fieldError, setFieldError] = useState(false);
+  const [fieldErrorMsg, setFieldErrorMsg] = useState('');
+
+  const handleFieldChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setPagesizeParam(parseInt(event.target.value, 10));
-    setPageParam(1);
+    const inputValue = parseInt(event.target.value);
+
+    if (!event.target.checkValidity()) {
+      setFieldError(true);
+      setFieldErrorMsg(event.target.validationMessage);
+      return;
+    }
+    setFieldError(false);
+
+    setLocalPageNum(inputValue);
   };
+
+  const handleSubmit = (event: SyntheticEvent) => {
+    event.preventDefault();
+    if (fieldError) return;
+    setPagesizeParam(localPagesizeVal);
+  };
+
   return (
-    <TablePagination
-      component='div'
-      count={data ? data.total : -1}
-      page={page - 1}
-      rowsPerPageOptions={[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
-      showFirstButton
-      onPageChange={handleChangePage}
-      rowsPerPage={pagesize}
-      onRowsPerPageChange={handleChangeRowsPerPage}
-    />
+    <Box
+      component='form'
+      noValidate
+      onSubmit={handleSubmit}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
+        backgroundColor: 'common.error',
+      }}
+    >
+      <Tooltip
+        title={fieldErrorMsg}
+        open={fieldError}
+        placement='top'
+        arrow
+        slotProps={{
+          tooltip: {
+            sx: {
+              color: 'white',
+              fontWeight: 'bold',
+              backgroundColor: 'error.main',
+              '& .MuiTooltip-arrow': {
+                color: 'error.main',
+              },
+            },
+          },
+        }}
+      >
+        <TextField
+          required
+          id='pagesize-number-field'
+          error={fieldError}
+          type='number'
+          label='Rows per page'
+          placeholder='1-100'
+          InputLabelProps={{ shrink: true }}
+          inputProps={{
+            min: 1,
+            max: 100,
+            style: { fontSize: 15, padding: '0.5em', textAlign: 'center' },
+          }}
+          onChange={handleFieldChange}
+          defaultValue={pagesize}
+          variant='outlined'
+          size='small'
+          sx={{ width: '7.5rem' }}
+        />
+      </Tooltip>
+      <Button type='submit' variant='outlined' size='small'>
+        Change
+      </Button>
+    </Box>
   );
 };
