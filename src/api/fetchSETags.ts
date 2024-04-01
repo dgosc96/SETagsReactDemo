@@ -19,14 +19,12 @@ export const fetchSETags = async ({
   console.log('SE_TAGS_PARAMS: ', params);
 
   const response = await fetch(baseURL + params);
+  const parsedBody = await response.json();
 
   if (!response.ok) {
-    throw new Error(
-      `API problem: Error ${response.status}, ${response.statusText}`
-    );
+    throw new Error(`${parsedBody.error_name}, ${parsedBody.error_message}`);
   }
 
-  const parsedBody = await response.json();
   if (parsedBody.backoff || parsedBody.error_id) {
     throw new Error(
       `From API: Backoff ${parsedBody.backoff}, Error: ${parsedBody.error_id}, ${parsedBody.error_message}, ${parsedBody.error_name}`
