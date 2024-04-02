@@ -1,17 +1,17 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
-import type { SE_TagsFetchParams } from '../types/SE_api';
+import type { SE_tagsFetchParams } from '../shared/types/SE_api';
 
 type SetActionType<T> = T | ((prev: T) => T);
 
-type TagsFetchParamsContextProps = SE_TagsFetchParams & {
-  fetchParams: SE_TagsFetchParams;
+type TagsFetchParamsContextProps = SE_tagsFetchParams & {
+  fetchParams: SE_tagsFetchParams;
   setOrderParam: (
-    setAction: SetActionType<SE_TagsFetchParams['order']>
+    setAction: SetActionType<SE_tagsFetchParams['order']>
   ) => void;
-  setSortParam: (setAction: SetActionType<SE_TagsFetchParams['sort']>) => void;
-  setPageParam: (setAction: SetActionType<SE_TagsFetchParams['page']>) => void;
+  setSortParam: (setAction: SetActionType<SE_tagsFetchParams['sort']>) => void;
+  setPageParam: (setAction: SetActionType<SE_tagsFetchParams['page']>) => void;
   setPagesizeParam: (
-    setAction: SetActionType<SE_TagsFetchParams['pagesize']>
+    setAction: SetActionType<SE_tagsFetchParams['pagesize']>
   ) => void;
 };
 

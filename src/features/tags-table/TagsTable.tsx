@@ -1,16 +1,15 @@
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
-import { TagsTableBody } from './components/TagsTableBody';
-import TagsTableHead from './components/TagsTableHead';
-import { TagsTableToolbar } from '../TagsTableToolbar';
+import { TagsTableBody } from './containers/table-body/TagsTableBody';
+import TagsTableHead from './containers/table-head/TagsTableHead';
+import { TagsTableToolbar } from '../tags-toolbar/TagsTableToolbar';
 import { Paper } from '@mui/material';
 
 const TagsTable = () => {
   return (
     <Paper
+      variant='outlined'
       sx={{
-        border: '1px solid',
-        borderColor: 'divider',
         borderRadius: '10px',
         pt: '1.5rem',
         overflow: 'hidden',
@@ -18,7 +17,6 @@ const TagsTable = () => {
     >
       <TagsTableToolbar />
       <TableContainer
-        component={Paper}
         sx={{
           maxHeight: '70dvh',
           borderTop: 'inherit',

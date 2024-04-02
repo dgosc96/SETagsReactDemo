@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchSETags } from '../api/fetchSETags';
-import { useTagsFetchParamsContext } from '../context/TagsContext';
+import { useTagsFetchParamsContext } from '../../context/TagsContext';
 
 export const useTagsQuery = () => {
   const { fetchParams } = useTagsFetchParamsContext();

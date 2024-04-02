@@ -4,7 +4,7 @@ export type SE_tag = {
   count: number;
 };
 
-export type SE_TagsFetchParams = {
+export type SE_tagsFetchParams = {
   order: 'desc' | 'asc';
   sort: 'popular' | 'activity' | 'name';
   page: number;

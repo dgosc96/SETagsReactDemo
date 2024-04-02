@@ -1,4 +1,4 @@
-import { SE_tag, SE_TagsFetchParams } from '../types/SE_api';
+import { SE_tag, SE_tagsFetchParams } from '../types/SE_api';
 
 type fetchSETagsResponseType = {
   items: SE_tag[];
@@ -13,7 +13,7 @@ export const fetchSETags = async ({
   pagesize = 30,
   order = 'desc',
   sort = 'popular',
-}: SE_TagsFetchParams): Promise<fetchSETagsResponseType> => {
+}: SE_tagsFetchParams): Promise<fetchSETagsResponseType> => {
   const baseURL = 'https://api.stackexchange.com';
   const params = `/2.3/tags?page=${page}&order=${order}&sort=${sort}&pagesize=${pagesize}&site=stackoverflow&filter=!4--Q8mMl8rw6M*Y(E`;
   console.log('SE_TAGS_PARAMS: ', params);
