@@ -1,6 +1,6 @@
 import { Container, Paper, Typography } from '@mui/material';
 import TagsTable from './features/tags-table/TagsTable';
-import { TagsTableToolbar } from './features/tags-toolbar/TagsTableToolbar';
+import { TagsToolbar } from './features/tags-toolbar/TagsToolbar';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
           overflow: 'hidden',
         }}
       >
-        <TagsTableToolbar />
+        <TagsToolbar />
         <TagsTable />
       </Paper>
     </Container>

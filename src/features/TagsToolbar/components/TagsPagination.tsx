@@ -1,7 +1,7 @@
 import { Pagination } from '@mui/material';
 import { useTagsFetchParamsContext } from '../../../shared/context/TagsContext';
 
-export const TagsTablePagination = () => {
+export const TagsPagination = () => {
   const { page, setPageParam } = useTagsFetchParamsContext();
 
   const handleChangePage = (

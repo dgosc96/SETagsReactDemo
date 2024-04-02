@@ -1,8 +1,8 @@
 import { Toolbar } from '@mui/material';
 import { PagesizeInputField } from './components/PagesizeInputField';
-import { TagsTablePagination } from './components/TagsTablePagination';
+import { TagsPagination } from './components/TagsPagination';
 
-export const TagsTableToolbar = () => {
+export const TagsToolbar = () => {
   return (
     <Toolbar
       sx={{
@@ -14,7 +14,7 @@ export const TagsTableToolbar = () => {
       }}
     >
       <PagesizeInputField />
-      <TagsTablePagination />
+      <TagsPagination />
     </Toolbar>
   );
 };
