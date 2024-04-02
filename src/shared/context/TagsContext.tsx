@@ -50,46 +50,6 @@ export const TagsFetchParamsContextProvider = ({
   const [pagesize, setPagesize] =
     useState<TagsFetchParamsContextProps['pagesize']>(20);
 
-  const setOrderParam: TagsFetchParamsContextProps['setOrderParam'] = (
-    setAction
-  ) => {
-    if (typeof setAction === 'function') {
-      setOrder((prev) => setAction(prev));
-      return;
-    }
-    setOrder(setAction);
-  };
-
-  const setSortParam: TagsFetchParamsContextProps['setSortParam'] = (
-    setAction
-  ) => {
-    if (typeof setAction === 'function') {
-      setSort((prev) => setAction(prev));
-      return;
-    }
-    setSort(setAction);
-  };
-
-  const setPageParam: TagsFetchParamsContextProps['setPageParam'] = (
-    setAction
-  ) => {
-    if (typeof setAction === 'function') {
-      setPage((prev) => setAction(prev));
-      return;
-    }
-    setPage(setAction);
-  };
-
-  const setPagesizeParam: TagsFetchParamsContextProps['setPagesizeParam'] = (
-    setAction
-  ) => {
-    if (typeof setAction === 'function') {
-      setPagesize((prev) => setAction(prev));
-      return;
-    }
-    setPagesize(setAction);
-  };
-
   const fetchParams = { order, sort, page, pagesize };
 
   return (
@@ -98,10 +58,10 @@ export const TagsFetchParamsContextProvider = ({
         ...fetchParams,
         fetchParams,
         fetchFn,
-        setOrderParam,
-        setSortParam,
-        setPageParam,
-        setPagesizeParam,
+        setOrderParam: setOrder,
+        setSortParam: setSort,
+        setPageParam: setPage,
+        setPagesizeParam: setPagesize,
       }}
     >
       {children}
