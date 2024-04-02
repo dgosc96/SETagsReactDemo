@@ -1,10 +1,19 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
-import type { SE_tagsFetchParams } from '../shared/types/SE_api';
+import type {
+  SE_tagsFetchParams,
+  fetchSETagsResponseType,
+} from '../types/SE_api';
 
 type SetActionType<T> = T | ((prev: T) => T);
 
 type TagsFetchParamsContextProps = SE_tagsFetchParams & {
   fetchParams: SE_tagsFetchParams;
+  fetchFn: ({
+    page,
+    pagesize,
+    order,
+    sort,
+  }: SE_tagsFetchParams) => Promise<fetchSETagsResponseType>;
   setOrderParam: (
     setAction: SetActionType<SE_tagsFetchParams['order']>
   ) => void;
@@ -28,8 +37,10 @@ export const useTagsFetchParamsContext = () => {
 
 export const TagsFetchParamsContextProvider = ({
   children,
+  fetchFn,
 }: {
   children: ReactNode;
+  fetchFn: TagsFetchParamsContextProps['fetchFn'];
 }) => {
   const [order, setOrder] =
     useState<TagsFetchParamsContextProps['order']>('desc');
@@ -86,6 +97,7 @@ export const TagsFetchParamsContextProvider = ({
       value={{
         ...fetchParams,
         fetchParams,
+        fetchFn,
         setOrderParam,
         setSortParam,
         setPageParam,

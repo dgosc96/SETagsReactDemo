@@ -3,7 +3,7 @@ import formatUnixTime from '../../../../../shared/utils/formatUnixTime';
 import { SE_tag } from '../../../../../shared/types/SE_api';
 
 type TagsTableRowProps = { tagData: SE_tag };
-export const TagsTableRow = ({ tagData }: TagsTableRowProps) => {
+export const TableBodyRow = ({ tagData }: TagsTableRowProps) => {
   return (
     <TableRow>
       <TableCell component='th' scope='row'>

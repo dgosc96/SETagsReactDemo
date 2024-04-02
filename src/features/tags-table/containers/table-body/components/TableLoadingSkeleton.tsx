@@ -2,7 +2,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Skeleton from '@mui/material/Skeleton';
-import { useTagsFetchParamsContext } from '../../../../../context/TagsContext';
+import { useTagsFetchParamsContext } from '../../../../../shared/context/TagsContext';
 
 const TableLoadingSkeleton = () => {
   const { pagesize } = useTagsFetchParamsContext();

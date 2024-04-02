@@ -1,5 +1,5 @@
 import { TableCellProps, TableCell, TableSortLabel } from '@mui/material';
-import { useTagsFetchParamsContext } from '../../../../../context/TagsContext';
+import { useTagsFetchParamsContext } from '../../../../../shared/context/TagsContext';
 import { SE_tagsFetchParams } from '../../../../../shared/types/SE_api';
 
 type TagTableHeadCellProps = TableCellProps & {

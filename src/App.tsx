@@ -1,5 +1,6 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Paper, Typography } from '@mui/material';
 import TagsTable from './features/tags-table/TagsTable';
+import { TagsTableToolbar } from './features/tags-toolbar/TagsTableToolbar';
 
 const App = () => {
   return (
@@ -7,7 +8,17 @@ const App = () => {
       <Typography variant='h4' sx={{ my: '2rem', textAlign: 'center' }}>
         StackOverflow Tags Viewer
       </Typography>
-      <TagsTable />
+      <Paper
+        variant='outlined'
+        sx={{
+          borderRadius: '10px',
+          pt: '1.5rem',
+          overflow: 'hidden',
+        }}
+      >
+        <TagsTableToolbar />
+        <TagsTable />
+      </Paper>
     </Container>
   );
 };

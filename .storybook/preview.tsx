@@ -6,7 +6,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
 import { SE_tagsFetchParams } from '../src/shared/types/SE_api';
-import { TagsFetchParamsContextProvider } from '../src/context/TagsContext';
+import { TagsFetchParamsContextProvider } from '../src/shared/context/TagsContext';
 
 import { mockTagsFetch } from '../src/stories/mockTagsFetch';
 
@@ -17,14 +17,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-const mockqueryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      queryFn: ({ queryKey }) =>
-        mockTagsFetch(queryKey[1] as SE_tagsFetchParams),
-    },
-  },
-});
+const mockqueryClient = new QueryClient();
 
 const preview: Preview = {
   parameters: {
@@ -46,7 +39,7 @@ const preview: Preview = {
       defaultTheme: 'dark',
     }),
     (Story) => (
-      <TagsFetchParamsContextProvider>
+      <TagsFetchParamsContextProvider fetchFn={mockTagsFetch}>
         <QueryClientProvider client={mockqueryClient}>
           <Story />
         </QueryClientProvider>
