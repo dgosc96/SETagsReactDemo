@@ -10,3 +10,11 @@ export type SE_tagsFetchParams = {
   page: number;
   pagesize: number;
 };
+
+export type fetchSETagsResponseType = {
+  items: SE_tag[];
+  has_more: boolean;
+  quota_max: number;
+  quota_remaining: number;
+  total: number;
+};

@@ -1,12 +1,4 @@
-import { SE_tag, SE_tagsFetchParams } from '../types/SE_api';
-
-type fetchSETagsResponseType = {
-  items: SE_tag[];
-  has_more: boolean;
-  quota_max: number;
-  quota_remaining: number;
-  total: number;
-};
+import { SE_tagsFetchParams, fetchSETagsResponseType } from '../types/SE_api';
 
 export const fetchSETags = async ({
   page = 1,
