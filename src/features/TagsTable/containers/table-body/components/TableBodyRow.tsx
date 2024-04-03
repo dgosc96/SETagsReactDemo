@@ -1,20 +1,22 @@
-import { TableRow, TableCell } from '@mui/material';
+import { TableRow } from '@mui/material';
+
 import formatUnixTime from '../../../../../shared/utils/formatUnixTime';
 import { SE_tag } from '../../../../../shared/types/SE_api';
+import { TableBodyCell } from './TableBodyCell';
 
-type TagsTableRowProps = { tagData: SE_tag };
-export const TableBodyRow = ({ tagData }: TagsTableRowProps) => {
+type TableBodyRowProps = { tagData: SE_tag };
+export const TableBodyRow = ({ tagData }: TableBodyRowProps) => {
   return (
     <TableRow>
-      <TableCell component='th' scope='row'>
+      <TableBodyCell type='name' component='th' scope='row'>
         {tagData.name}
-      </TableCell>
-      <TableCell align='center'>
+      </TableBodyCell>
+      <TableBodyCell type='popular' align='center'>
         {tagData.count.toLocaleString()} questions
-      </TableCell>
-      <TableCell align='right'>
+      </TableBodyCell>
+      <TableBodyCell type='activity' align='right'>
         {formatUnixTime(tagData.last_activity_date)}
-      </TableCell>
+      </TableBodyCell>
     </TableRow>
   );
 };
