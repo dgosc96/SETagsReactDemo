@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { TableBodyRow } from './TableBodyRow';
-import { Table } from '@mui/material';
+import { Table, TableBody } from '@mui/material';
 
 const meta: Meta<typeof TableBodyRow> = {
   component: TableBodyRow,
@@ -15,8 +15,10 @@ export const Primary: Story = {
     tagData: { name: 'tagName', count: 1234, last_activity_date: Date.now() },
   },
   render: (args) => (
-    <Table>
-      <TableBodyRow {...args} />
+    <Table size='small'>
+      <TableBody>
+        <TableBodyRow {...args} />
+      </TableBody>
     </Table>
   ),
 };
