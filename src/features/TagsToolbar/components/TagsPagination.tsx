@@ -2,7 +2,7 @@ import { Pagination } from '@mui/material';
 import { useTagsFetchParamsContext } from '../../../shared/context/TagsContext';
 
 export const TagsPagination = () => {
-  const { page, setPageParam } = useTagsFetchParamsContext();
+  const { page, pageCount, setPageParam } = useTagsFetchParamsContext();
 
   const handleChangePage = (
     _event: React.ChangeEvent<unknown>,
@@ -14,7 +14,7 @@ export const TagsPagination = () => {
   return (
     <Pagination
       sx={{ gap: 0 }}
-      count={26}
+      count={pageCount}
       page={page}
       onChange={handleChangePage}
       color='primary'

@@ -8,6 +8,8 @@ type SetActionType<T> = T | ((prev: T) => T);
 
 type TagsFetchParamsContextProps = SE_tagsFetchParams & {
   fetchParams: SE_tagsFetchParams;
+  pageCount: number;
+  setPageCount: (setAction: SetActionType<number>) => void;
   fetchFn: ({
     page,
     pagesize,
@@ -48,7 +50,9 @@ export const TagsFetchParamsContextProvider = ({
     useState<TagsFetchParamsContextProps['sort']>('popular');
   const [page, setPage] = useState<TagsFetchParamsContextProps['page']>(1);
   const [pagesize, setPagesize] =
-    useState<TagsFetchParamsContextProps['pagesize']>(20);
+    useState<TagsFetchParamsContextProps['pagesize']>(30);
+
+  const [pageCount, setPageCount] = useState(100);
 
   const fetchParams = { order, sort, page, pagesize };
 
@@ -57,6 +61,8 @@ export const TagsFetchParamsContextProvider = ({
       value={{
         ...fetchParams,
         fetchParams,
+        pageCount,
+        setPageCount,
         fetchFn,
         setOrderParam: setOrder,
         setSortParam: setSort,

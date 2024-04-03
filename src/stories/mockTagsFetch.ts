@@ -72,7 +72,7 @@ export async function mockTagsFetch({
     has_more: true,
     quota_max: 1000,
     quota_remaining: 800,
-    total: mockItems.length,
+    total: 81123,
   };
 
   const response = new Response(JSON.stringify(mockData), {
