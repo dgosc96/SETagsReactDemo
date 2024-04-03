@@ -1,6 +1,7 @@
 import { Container, Paper, Typography } from '@mui/material';
-import TagsTable from './features/tags-table/TagsTable';
-import { TagsToolbar } from './features/tags-toolbar/TagsToolbar';
+
+import { TagsToolbar } from './features/TagsToolbar/TagsToolbar';
+import { TagsTable } from './features/TagsTable/TagsTable';
 
 const App = () => {
   return (

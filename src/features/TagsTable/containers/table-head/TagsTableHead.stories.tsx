@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TagsTableHead from './TagsTableHead';
 import { Table } from '@mui/material';
+import { TagsTableHead } from './TagsTableHead';
 
 const meta: Meta<typeof TagsTableHead> = {
   component: TagsTableHead,

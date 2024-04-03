@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TableLoadingSkeleton from './TableLoadingSkeleton';
 import { Table } from '@mui/material';
+import TableLoadingSkeleton from './TableLoadingSkeleton';
 
 const meta: Meta<typeof TableLoadingSkeleton> = {
   component: TableLoadingSkeleton,

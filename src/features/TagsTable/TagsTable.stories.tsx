@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TagsTable from './TagsTable';
+import { TagsTable } from './TagsTable';
 
 const meta: Meta<typeof TagsTable> = {
   component: TagsTable,

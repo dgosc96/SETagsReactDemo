@@ -1,7 +1,7 @@
 import { TableHead, TableRow } from '@mui/material';
 import { TagTableHeadCell } from './components/TagTableHeadCell';
 
-const TagsTableHead = () => {
+export const TagsTableHead = () => {
   return (
     <TableHead>
       <TableRow>
@@ -16,4 +16,3 @@ const TagsTableHead = () => {
     </TableHead>
   );
 };
-export default TagsTableHead;

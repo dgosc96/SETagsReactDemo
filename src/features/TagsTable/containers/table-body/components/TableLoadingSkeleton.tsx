@@ -1,7 +1,4 @@
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import Skeleton from '@mui/material/Skeleton';
+import { TableBody, TableRow, TableCell, Skeleton } from '@mui/material';
 import { useTagsFetchParamsContext } from '../../../../../shared/context/TagsContext';
 
 const TableLoadingSkeleton = () => {

@@ -1,9 +1,9 @@
-import Table from '@mui/material/Table';
-import TableContainer from '@mui/material/TableContainer';
-import { TagsTableBody } from './containers/table-body/TagsTableBody';
-import TagsTableHead from './containers/table-head/TagsTableHead';
+import { TableContainer, Table } from '@mui/material';
 
-const TagsTable = () => {
+import { TagsTableBody } from './containers/table-body/TagsTableBody';
+import { TagsTableHead } from './containers/table-head/TagsTableHead';
+
+export const TagsTable = () => {
   return (
     <TableContainer
       sx={{
@@ -27,5 +27,3 @@ const TagsTable = () => {
     </TableContainer>
   );
 };
-
-export default TagsTable;
