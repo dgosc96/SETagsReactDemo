@@ -19,7 +19,7 @@ export async function mockTagsFetch({
   sort = 'popular',
 }: SE_tagsFetchParams): Promise<fetchSETagsResponseType> {
   const generateMockItems = () => {
-    let items: Array<SE_tag> = [
+    const items: Array<SE_tag> = [
       {
         name: `Tag${(page - 1) * pagesize + 1}`,
         last_activity_date: getRandomUnixTimestamp(),
