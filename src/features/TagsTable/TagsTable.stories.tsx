@@ -1,16 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TagsTable } from './TagsTable';
+import { TagsTable as TagsTableComponent } from './TagsTable';
+//import { Container, Paper } from '@mui/material';
 
-const meta: Meta<typeof TagsTable> = {
-  component: TagsTable,
+const meta: Meta<typeof TagsTableComponent> = {
+  component: TagsTableComponent,
   title: 'tags-table/TagsTable',
 };
 
 export default meta;
-type Story = StoryObj<typeof TagsTable>;
+type Story = StoryObj<typeof TagsTableComponent>;
 
-export const Primary: Story = {
-  args: {
-    primary: true,
-  },
-};
+export const TagsTable: Story = {};

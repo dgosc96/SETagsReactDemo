@@ -2,7 +2,7 @@ import {
   SE_tag,
   SE_tagsFetchParams,
   fetchSETagsResponseType,
-} from '../shared/types/SE_api';
+} from '../../src/shared/types/SE_api';
 
 function getRandomInt(min: number = 0, max: number = 1): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;

@@ -1,19 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Table } from '@mui/material';
-import TableLoadingSkeleton from './TableLoadingSkeleton';
 
-const meta: Meta<typeof TableLoadingSkeleton> = {
-  component: TableLoadingSkeleton,
-  title: 'tags-table/body/TableLoadingSkeleton',
+import { TableLoadingSkeleton as TableLoadingSkeletonComponent } from './TableLoadingSkeleton';
+import { TagsTable } from '../../../TagsTable';
+
+const meta: Meta<typeof TableLoadingSkeletonComponent> = {
+  component: TableLoadingSkeletonComponent,
+  title: 'tags-table/table-body/TableLoadingSkeleton',
 };
 
 export default meta;
-type Story = StoryObj<typeof TableLoadingSkeleton>;
+type Story = StoryObj<typeof TableLoadingSkeletonComponent>;
 
-export const Primary: Story = {
-  render: () => (
-    <Table size='small'>
-      <TableLoadingSkeleton />
-    </Table>
-  ),
+export const TableLoadingSkeleton: Story = {
+  decorators: [
+    (Story) => (
+      <TagsTable.Template>
+        <Story />
+      </TagsTable.Template>
+    ),
+  ],
+  render: () => <TableLoadingSkeletonComponent />,
 };

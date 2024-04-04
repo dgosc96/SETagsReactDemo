@@ -1,19 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Table } from '@mui/material';
-import { TagsTableHead } from './TagsTableHead';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof TagsTableHead> = {
-  component: TagsTableHead,
-  title: 'tags-table/head/TagsTableHead',
+import { TagsTableHead as TagsTableHeadComponent } from './TagsTableHead';
+import { TagsTable } from '../../TagsTable';
+
+const meta: Meta<typeof TagsTableHeadComponent> = {
+  component: TagsTableHeadComponent,
+  title: 'tags-table/table-head/TagsTableHead',
 };
 
 export default meta;
-type Story = StoryObj<typeof TagsTableHead>;
+type Story = StoryObj<typeof TagsTableHeadComponent>;
 
-export const Primary: Story = {
-  render: () => (
-    <Table>
-      <TagsTableHead />
-    </Table>
-  ),
+export const TagsTableHead: Story = {
+  decorators: [
+    (Story: StoryFn) => (
+      <TagsTable.Template>
+        <Story />
+      </TagsTable.Template>
+    ),
+  ],
 };

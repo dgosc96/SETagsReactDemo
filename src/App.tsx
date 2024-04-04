@@ -10,10 +10,12 @@ const App = () => {
         StackOverflow Tags Viewer
       </Typography>
       <Paper
-        variant='outlined'
+        elevation={0.5}
         sx={{
           borderRadius: '10px',
-          pt: '1.5rem',
+          border: '1px solid',
+          borderColor: 'divider',
+          p: '0.5rem',
           overflow: 'hidden',
         }}
       >

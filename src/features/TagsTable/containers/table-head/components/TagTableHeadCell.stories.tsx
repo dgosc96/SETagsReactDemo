@@ -1,30 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TagTableHeadCell } from './TagTableHeadCell';
-import { Table, TableHead, TableRow } from '@mui/material';
+import { TableHead, TableRow } from '@mui/material';
 
-const meta: Meta<typeof TagTableHeadCell> = {
-  component: TagTableHeadCell,
-  title: 'tags-table/head/TagTableHeadCell',
+import { TagTableHeadCell as TagTableHeadCellComponent } from './TagTableHeadCell';
+import { TagsTable } from '../../../TagsTable';
+
+const meta: Meta<typeof TagTableHeadCellComponent> = {
+  component: TagTableHeadCellComponent,
+  title: 'tags-table/table-head/TagTableHeadCell',
 };
 
 export default meta;
-type Story = StoryObj<typeof TagTableHeadCell>;
+type Story = StoryObj<typeof TagTableHeadCellComponent>;
 
-export const Primary: Story = {
+export const TagTableHeadCell: Story = {
+  argTypes: {
+    sortVal: {
+      control: 'inline-radio',
+      options: ['name', 'popular', 'activity'],
+    },
+  },
   args: {
     label: 'Label',
     sortVal: 'name',
   },
+  decorators: [
+    (Story) => (
+      <TagsTable.Template>
+        <TableHead>
+          <TableRow>
+            <Story />
+          </TableRow>
+        </TableHead>
+      </TagsTable.Template>
+    ),
+  ],
   render: (args) => (
-    <Table>
-      <col style={{ width: '30%' }} />
-      <col style={{ width: '20%' }} />
-      <col style={{ width: '40%' }} />
-      <TableHead>
-        <TableRow>
-          <TagTableHeadCell label={args.label} sortVal={args.sortVal} />
-        </TableRow>
-      </TableHead>
-    </Table>
+    <TagTableHeadCellComponent label={args.label} sortVal={args.sortVal} />
   ),
 };

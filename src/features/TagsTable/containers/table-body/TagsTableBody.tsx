@@ -1,8 +1,8 @@
 import TableBody from '@mui/material/TableBody';
-import TableLoadingSkeleton from './components/TableLoadingSkeleton';
+import { TableLoadingSkeleton } from './components/TableLoadingSkeleton';
 
 import { useTagsQuery } from '../../../../shared/queries/useTagsQuery';
-import { TableError } from './components/TableError';
+import { TableBodyError } from './components/TableBodyError';
 import { TableBodyRow } from './components/TableBodyRow';
 
 export const TagsTableBody = () => {
@@ -12,7 +12,9 @@ export const TagsTableBody = () => {
     return <TableLoadingSkeleton />;
   }
   if (status === 'error') {
-    return <TableError errorName={error.name} errorMessage={error.message} />;
+    return (
+      <TableBodyError errorName={error.name} errorMessage={error.message} />
+    );
   }
   return (
     <TableBody>

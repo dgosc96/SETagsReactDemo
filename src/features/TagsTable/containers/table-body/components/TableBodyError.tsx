@@ -4,7 +4,7 @@ type TableErrorProps = {
   errorName: string;
   errorMessage: string;
 };
-export const TableError = (props: TableErrorProps) => {
+export const TableBodyError = (props: TableErrorProps) => {
   return (
     <TableBody>
       <TableRow>

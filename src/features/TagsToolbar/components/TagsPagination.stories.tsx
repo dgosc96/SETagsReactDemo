@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TagsPagination } from './TagsPagination';
+import { TagsPagination as TagsPaginationComponent } from './TagsPagination';
 
-const meta: Meta<typeof TagsPagination> = {
-  component: TagsPagination,
+const meta: Meta<typeof TagsPaginationComponent> = {
+  component: TagsPaginationComponent,
   title: 'tags-toolbar/TagsPagination',
 };
 
@@ -11,4 +11,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const TagsPagination: Story = {};

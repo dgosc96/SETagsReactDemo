@@ -8,6 +8,7 @@ export const TagsToolbar = () => {
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
+        mt: '1rem',
         justifyContent: 'space-around',
         gap: '2rem',
         mb: '1rem',

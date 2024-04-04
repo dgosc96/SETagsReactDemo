@@ -1,7 +1,7 @@
 import { TableBody, TableRow, TableCell, Skeleton } from '@mui/material';
 import { useTagsFetchParamsContext } from '../../../../../shared/context/TagsContext';
 
-const TableLoadingSkeleton = () => {
+export const TableLoadingSkeleton = () => {
   const { pagesize } = useTagsFetchParamsContext();
 
   return (
@@ -22,4 +22,3 @@ const TableLoadingSkeleton = () => {
     </TableBody>
   );
 };
-export default TableLoadingSkeleton;
