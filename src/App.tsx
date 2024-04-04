@@ -10,7 +10,7 @@ const App = () => {
         StackOverflow Tags Viewer
       </Typography>
       <Paper
-        elevation={0.5}
+        elevation={1}
         sx={{
           borderRadius: '10px',
           border: '1px solid',
